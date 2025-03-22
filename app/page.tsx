@@ -8,13 +8,10 @@ export default function Page() {
     <div className="flex flex-col items-center px-4 md:px-16 py-8 space-y-12">
       <Hero />
 
-      {/* Celebration Text Section */}
       <CelebrationSection />
 
-      {/* Happy Eid Greeting Image */}
       <EidGreeting />
 
-      {/* Cards Section */}
       <Cards />
     </div>
   );
