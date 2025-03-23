@@ -9,21 +9,19 @@ export async function POST(req: NextRequest) {
     await connectToDB();
 
     // Get the data from the request body
-    const { title, message, language, userName } = await req.json();
+    const {message, userName } = await req.json();
 
     // Check if all required fields are present
-    if (!title || !message || !language || !userName) {
+    if (!message || !userName) {
       return NextResponse.json(
-        { error: 'All fields (title, message, language, userName) are required' },
+        { error: 'All fields (message, userName) are required' },
         { status: 400 }
       );
     }
 
     // Create a new message document
     const newMessage = new Message({
-      title,
       message,
-      language,
       userName,
     });
 
