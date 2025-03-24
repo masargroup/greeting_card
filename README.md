@@ -45,4 +45,4 @@ vercel deploy
 ```
 
 ## License
-MIT License © 2024 Masar Greeting Card Team
+MIT License © 2024 Masar Greeting Card Team  .
