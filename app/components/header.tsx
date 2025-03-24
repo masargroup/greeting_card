@@ -1,11 +1,10 @@
 import Image from "next/image";
-import logo from '@/public/logo.png'; 
 
 export default function Header() {
   return (
     <header className="py-6 px-10 flex justify-start items-center">
       <Image 
-        src={logo} 
+        src='/ui/logo.svg'
         alt="شعار العيد" 
         width={100} 
         height={100} 

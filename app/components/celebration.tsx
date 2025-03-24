@@ -1,5 +1,4 @@
 import Image from "next/image";
-import heart from "@/public/heart.png";
 
 export default function CelebrationSection() {
   return (
@@ -7,7 +6,7 @@ export default function CelebrationSection() {
       <div className="max-w-2xl text-center text-[#323941] space-y-6">
         <p className="text-xl md:text-2xl leading-loose">
           <span className="inline-flex items-center gap-2">
-            <Image src={heart} alt="Heart" width={24} height={24} />
+            <Image src='/ui/heart.svg' alt="Heart" width={24} height={24} />
           </span>
           &nbsp;يسرّنا أن نهنئكم بحلول عيد الفطر المبارك،شكرًا لجهودكم وتفانيكم، ونتطلع إلى المزيد من النجاحات معًا
         </p>
