@@ -1,7 +1,7 @@
-import Hero from './hero';
-import CelebrationSection from './celebration';
-import EidGreeting from './greeting';
-import Cards from './cards';
+import Hero from './components/hero';
+import CelebrationSection from './components/celebration';
+import EidGreeting from './components/greeting';
+import Cards from './components/cards';
 
 export default function Page() {
   return (
