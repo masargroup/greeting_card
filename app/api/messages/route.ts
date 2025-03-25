@@ -36,7 +36,6 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     // Handle errors and return an error response
-    console.error(error);
     return NextResponse.json({ error: 'Error saving message' }, { status: 500 });
   }
 }
