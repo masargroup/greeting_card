@@ -5,6 +5,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 interface IMessage extends Document {
   message: string;
   userName: string; 
+  url: string;
 }
 
 // Create the schema
@@ -17,6 +18,10 @@ const messageSchema = new Schema<IMessage>({
     type: String,
     required: true,
   },
+  url: {
+    type: String,
+    required: true,
+  }
 }, {
   timestamps: true, 
 });
