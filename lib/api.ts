@@ -16,7 +16,7 @@ export const connectToDB = async (): Promise<void> => {
 
     await mongoose.connect(process.env.MONGODB_URI, {
       dbName: 'ecommerce_db', // Changed to more appropriate db name
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+      serverSelectionTimeoutMS: 5000, //Timeout after 5s instead of 30s
     });
 
     isConnected = true;
