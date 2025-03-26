@@ -11,7 +11,7 @@ export const connectToDB = async (): Promise<void> => {
   try {
     // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_URI || '', {
-      dbName: 'dataFetching', // The name of the database I've created
+      dbName: 'dataFetching', 
     });
     
     isConnected = true;

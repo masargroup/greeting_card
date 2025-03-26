@@ -1,7 +1,7 @@
 // app/api/messages/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { connectToDB } from '../../../lib/mongodb'; // MongoDB connection
-import Message from '../../../models/Message'; // Message model
+import { connectToDB } from '@/lib/mongodb'; // MongoDB connection
+import Message from '@/models/Message'; // Message model
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,22 +9,21 @@ export async function POST(req: NextRequest) {
     await connectToDB();
 
     // Get the data from the request body
-    const { title, message, language, userName } = await req.json();
+    const {message, userName, url } = await req.json();
 
     // Check if all required fields are present
-    if (!title || !message || !language || !userName) {
+    if (!message || !userName || !url) {
       return NextResponse.json(
-        { error: 'All fields (title, message, language, userName) are required' },
+        { error: 'All fields (message, userName, url) are required' },
         { status: 400 }
       );
     }
 
     // Create a new message document
     const newMessage = new Message({
-      title,
       message,
-      language,
       userName,
+      url,
     });
 
     // Save the message in MongoDB
@@ -37,7 +36,6 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     // Handle errors and return an error response
-    console.error(error);
     return NextResponse.json({ error: 'Error saving message' }, { status: 500 });
   }
 }
