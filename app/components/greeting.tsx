@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import happyEid from '@/public/happy-eid.png';
-import candy from '@/public/candy.png';
-import starBig from '@/public/star-big.svg';
-import starSmall from '@/public/star-small.svg';
+import happyEid from '@/public/ui/happy-eid.png';
+import candy from '@/public/ui/candy.png';
+import starBig from '@/public/ui/star-big.svg';
+import starSmall from '@/public/ui/star-small.svg';
 
 export default function EidGreeting() {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heart from "@/public/heart.png";
+import heart from "@/public/ui/heart.png";
 
 export default function CelebrationSection() {
   return (

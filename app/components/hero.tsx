@@ -1,11 +1,11 @@
 import Image from "next/image";
-import ballon1 from '@/public/eid-ballon1.png';
-import ballon2 from '@/public/eid-ballon2.png';
-import activitiesText from '@/public/eid-activities.png';
+import ballon1 from '@/public/ui/eid-ballon1.png';
+import ballon2 from '@/public/ui/eid-ballon2.png';
+import activitiesText from '@/public/ui/eid-activities.png';
 
 export default function Hero() {
   return (
-    <section className="relative text-center space-y-6 flex flex-col items-center px-4 md:px-16 py-8 space-y-12">
+    <section className="relative text-center flex flex-col items-center px-4 md:px-16 py-8 space-y-12">
       <Image
         src={ballon1}
         alt="Balloon 1"
