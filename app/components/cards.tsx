@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import $ from 'jquery';
-import { AppImages } from '@/public/cards/images';
+import { card1, card2, card3, card4 } from '@/public/cards/images';
 
 export default function GreetingCardPage() {
   const [selectedCard, setSelectedCard] = useState<keyof typeof cardStyles | ''>('');
@@ -76,7 +76,7 @@ export default function GreetingCardPage() {
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
         {/* <div>
           <Image
-            src="/cards/Card_01.png"
+            src={card1}
             alt="بطاقة تهنئة ١"
             width={400}
             height={300}
@@ -93,7 +93,7 @@ export default function GreetingCardPage() {
         </div> */}
         <div>
           <Image
-            src={AppImages.card1}
+            src={card2}
             alt="بطاقة تهنئة ١"
             width={400}
             height={300}
@@ -111,7 +111,7 @@ export default function GreetingCardPage() {
 
         <div>
           <Image
-            src="/cards/Card_03.png"
+            src={card3}
             alt="بطاقة تهنئة ١"
             width={400}
             height={300}
@@ -129,7 +129,7 @@ export default function GreetingCardPage() {
 
         <div>
           <Image
-            src="/cards/Card_04.png"
+            src={card4}
             alt="بطاقة تهنئة ١"
             width={400}
             height={300}
