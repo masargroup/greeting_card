@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import $ from 'jquery';
 import { card1, card2, card3, card4 } from '@/public/cards/images';
-import { saveMessage } from '@/lib/api';
 
 export default function GreetingCardPage() {
   const [selectedCard, setSelectedCard] = useState<keyof typeof cardStyles | ''>('');
@@ -57,16 +56,14 @@ export default function GreetingCardPage() {
     }
   }, [userName, selectedCard]);
 
-  const handleDownload = async () => {
+  const handleDownload = () => {
     if (previewUrl) {
-      await saveMessage(userName, previewUrl);
       const downloadLink = document.createElement('a');
       downloadLink.href = previewUrl;
       downloadLink.download = 'greeting-card.png';
       downloadLink.click();
     }
   };
-
 
   const closeModal = () => {
     setIsModalOpen(false);
