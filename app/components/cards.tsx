@@ -11,14 +11,14 @@ export default function GreetingCardPage() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const cardStyles = {
-    card1: { position: { x: 1000, y: 1490 }, color: 'black' },
-    card2: { position: { x: 1000, y: 1490 }, color: 'white' },
-    card3: { position: { x: 1000, y: 1398 }, color: 'white' },
-    card4: { position: { x: 1000, y: 1490 }, color: 'white' },
+    card1: { image: card1, position: { x: 1000, y: 1490 }, color: 'black' },
+    card2: { image: card2, position: { x: 1000, y: 1490 }, color: 'white' },
+    card3: { image: card3, position: { x: 1000, y: 1398 }, color: 'white' },
+    card4: { image: card4, position: { x: 1000, y: 1490 }, color: 'white' },
   };
 
-  const handleCardSelection = (cardUrl: "" | "card1" | "card2" | "card3" | "card4") => {
-    setSelectedCard(cardUrl);
+  const handleCardSelection = (cardKey: keyof typeof cardStyles) => {
+    setSelectedCard(cardKey);
     setIsModalOpen(true);
   };
 
@@ -51,8 +51,8 @@ export default function GreetingCardPage() {
 
   useEffect(() => {
     if (userName && selectedCard) {
-      const { position, color } = cardStyles[selectedCard] || { position: { x: 900, y: 1490 }, color: 'white' };
-      renderCardWithName(selectedCard, userName, position, color);
+      const { image, position, color } = cardStyles[selectedCard];
+      renderCardWithName(image.src, userName, position, color);
     }
   }, [userName, selectedCard]);
 
@@ -74,76 +74,25 @@ export default function GreetingCardPage() {
   return (
     <div>
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
-        {/* <div>
-          <Image
-            src={card1}
-            alt="بطاقة تهنئة ١"
-            width={400}
-            height={300}
-            className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 "
-          />
-          <div className="my-4 text-right">
-            <button
-              onClick={() => handleCardSelection('card1')}
-              className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
-            >
-              معـاينة وتحميــل
-            </button>
+        {Object.entries(cardStyles).map(([key, { image }]) => (
+          <div key={key}>
+            <Image
+              src={image}
+              alt={`بطاقة تهنئة ${key}`}
+              width={400}
+              height={300}
+              className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+            />
+            <div className="my-4 text-right">
+              <button
+                onClick={() => handleCardSelection(key as keyof typeof cardStyles)}
+                className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
+              >
+                معـاينة وتحميــل
+              </button>
+            </div>
           </div>
-        </div> */}
-        <div>
-          <Image
-            src={card2}
-            alt="بطاقة تهنئة ١"
-            width={400}
-            height={300}
-            className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 "
-          />
-          <div className="my-4 text-right">
-            <button
-              onClick={() => handleCardSelection('card2')}
-              className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
-            >
-              معـاينة وتحميــل
-            </button>
-          </div>
-        </div>
-
-        <div>
-          <Image
-            src={card3}
-            alt="بطاقة تهنئة ١"
-            width={400}
-            height={300}
-            className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 "
-          />
-          <div className="my-4 text-right">
-            <button
-              onClick={() => handleCardSelection('card3')}
-              className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
-            >
-              معـاينة وتحميــل
-            </button>
-          </div>
-        </div>
-
-        <div>
-          <Image
-            src={card4}
-            alt="بطاقة تهنئة ١"
-            width={400}
-            height={300}
-            className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 "
-          />
-          <div className="my-4 text-right">
-            <button
-              onClick={() => handleCardSelection('card4')}
-              className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
-            >
-              معـاينة وتنزيــل
-            </button>
-          </div>
-        </div>
+        ))}
       </section>
 
       {isModalOpen && (
