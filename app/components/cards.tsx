@@ -11,13 +11,13 @@ export default function GreetingCardPage() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const cardStyles = {
-    '/cards/Card_01.png': { position: { x: 1000, y: 1490 }, color: 'black' },
-    '/cards/Card_02.png': { position: { x: 1000, y: 1490 }, color: 'white' },//
-    '/cards/Card_03.png': { position: { x: 1000, y: 1398 }, color: 'white' }, //
-    '/cards/Card_04.png': { position: { x: 1000, y: 1490 }, color: 'white' }, //
+    card1: { position: { x: 1000, y: 1490 }, color: 'black' },
+    card2: { position: { x: 1000, y: 1490 }, color: 'white' },
+    card3: { position: { x: 1000, y: 1398 }, color: 'white' },
+    card4: { position: { x: 1000, y: 1490 }, color: 'white' },
   };
 
-  const handleCardSelection = (cardUrl: "" | "/cards/Card_01.png" | "/cards/Card_02.png" | "/cards/Card_03.png" | "/cards/Card_04.png") => {
+  const handleCardSelection = (cardUrl: "" | "card1" | "card2" | "card3" | "card4") => {
     setSelectedCard(cardUrl);
     setIsModalOpen(true);
   };
@@ -84,7 +84,7 @@ export default function GreetingCardPage() {
           />
           <div className="my-4 text-right">
             <button
-              onClick={() => handleCardSelection('/cards/Card_01.png')}
+              onClick={() => handleCardSelection('card1')}
               className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
             >
               معـاينة وتحميــل
@@ -101,7 +101,7 @@ export default function GreetingCardPage() {
           />
           <div className="my-4 text-right">
             <button
-              onClick={() => handleCardSelection('/cards/Card_02.png')}
+              onClick={() => handleCardSelection('card2')}
               className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
             >
               معـاينة وتحميــل
@@ -119,7 +119,7 @@ export default function GreetingCardPage() {
           />
           <div className="my-4 text-right">
             <button
-              onClick={() => handleCardSelection('/cards/Card_03.png')}
+              onClick={() => handleCardSelection('card3')}
               className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
             >
               معـاينة وتحميــل
@@ -137,7 +137,7 @@ export default function GreetingCardPage() {
           />
           <div className="my-4 text-right">
             <button
-              onClick={() => handleCardSelection('/cards/Card_04.png')}
+              onClick={() => handleCardSelection('card4')}
               className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
             >
               معـاينة وتنزيــل
