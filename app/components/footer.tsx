@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaSnapchat, FaYoutube } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedin, FaSnapchat, FaYoutube } from "react-icons/fa";
+import { Logo } from '@/public/ui/ui';
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       <div className="text-center md:text-right space-y-4">
         <div className=" justify-center md:justify-start">
           <Image
-            src='/ui/logo.svg'
+            src={Logo}
             alt="Masar Logo"
             width={100}
             height={100}
