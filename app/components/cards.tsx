@@ -11,7 +11,7 @@ export default function GreetingCardPage() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const cardStyles = {
-    card1: { image: card1, position: { x: 1000, y: 1490 }, color: 'black' },
+    // card1: { image: card1, position: { x: 1000, y: 1490 }, color: 'black' },
     card2: { image: card2, position: { x: 1000, y: 1490 }, color: 'white' },
     card3: { image: card3, position: { x: 1000, y: 1398 }, color: 'white' },
     card4: { image: card4, position: { x: 1000, y: 1490 }, color: 'white' },
