@@ -1,21 +1,22 @@
-//lib/mongodb
 import mongoose from 'mongoose';
 
-let isConnected: boolean = false;
+let isConnected = false;
 
 export const connectToDB = async (): Promise<void> => {
   if (isConnected) {
+    console.log('Already connected to MongoDB.');
     return;
   }
 
   try {
-    // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI || '', {
-      dbName: 'dataFetching', 
+    console.log('Connecting to MongoDB...');
+    await mongoose.connect(process.env.MONGODB_URI as string, {
+      dbName: 'greetingcard',
     });
-    
+
     isConnected = true;
+    console.log('Connected to MongoDB.');
   } catch (error) {
-    throw new Error('Failed to connect to MongoDB');
+    console.error('Failed to connect to MongoDB:', error);
   }
 };
