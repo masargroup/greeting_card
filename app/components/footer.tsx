@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaSnapchat, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 py-6 px-4   items-center justify-between space-y-4 md:space-y-0">
+    <footer className="bg-white border-t border-gray-200 py-2 px-4  w-full  items-center justify-between space-y-4 md:space-y-0">
       <div className="text-center md:text-right space-y-4">
         <div className=" justify-center md:justify-start">
           <Image
@@ -15,12 +15,12 @@ export default function Footer() {
           />
         </div>
 
-        <p className="text-lg font-semibold text-[#052B36]">
+        <p className="text-sm md:text-lg font-semibold text-[#052B36]">
           المسار الصحيح لتحقيق طموحاتك الوظيفية
         </p>
 
-        <div className="space-x-6 mb-8">
-          <a
+        <div className="space-x-6">
+          {/* <a
             href="#about"
             className="text-sm text-gray-500 hover:text-[#34A0BD]"
           >
@@ -43,28 +43,16 @@ export default function Footer() {
             className="text-sm text-gray-500 hover:text-[#34A0BD]"
           >
             الدعم الفني
-          </a>
+          </a> */}
         </div>
       </div>
 
-      <div className="flex justify-between">
-        <div className="text-sm text-gray-500 text-right">
-          <p>جميع الحقوق محفوظة © 2025 | لفريق مبادرة مسار</p>
-        </div>
 
-        <div className="flex space-x-4 justify-end">
+      <div className="flex justify-between">
+        <div className="flex space-x-4 text-center md:text-start">
+
           <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook
-              className="text-gray-600 hover:text-[#34A0BD] transition"
-              size={24}
-            />
-          </a>
-          <a
-            href="https://twitter.com"
+            href="https://x.com/masar_2030?lang=en"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -74,7 +62,7 @@ export default function Footer() {
             />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/masar_2030"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -84,7 +72,7 @@ export default function Footer() {
             />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/masar2030/about/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -93,6 +81,31 @@ export default function Footer() {
               size={24}
             />
           </a>
+          <a
+            href="https://www.snapchat.com/add/masar2030?share_id=VD+Ua2rDTP+4sBuEKPXeMw&locale=ar_EG&sid=cf8b935f9f3b43dba340328d38137917"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaSnapchat
+              className="text-gray-600 hover:text-[#34A0BD] transition"
+              size={24}
+            />
+          </a>
+          <a
+            href="https://www.youtube.com/@MASAR-yt1wy/featured"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube
+              className="text-gray-600 hover:text-[#34A0BD] transition"
+              size={24}
+            />
+          </a>
+        </div>
+      </div>
+      <div className="flex justify-between">
+        <div className="text-sm text-gray-500 text-center md:text-right">
+          <p>جميع الحقوق محفوظة © 2025 | لفريق مبادرة مسار</p>
         </div>
       </div>
     </footer>

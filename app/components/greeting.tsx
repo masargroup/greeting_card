@@ -2,13 +2,13 @@ import Image from 'next/image';
 
 export default function EidGreeting() {
   return (
-    <section className="relative w-full flex justify-center py-8 px-4">
+    <section className="relative w-full flex justify-center px-4">
 
       <Image
         src='/ui/candy.svg'
         alt="Candy"
-        width={64} 
-        height={64} 
+        width={64}
+        height={64}
         className="absolute top-8 left-4 md:w-24 md:h-24"
       />
 
@@ -34,8 +34,8 @@ export default function EidGreeting() {
       <Image
         src='/ui/happy-eid.svg'
         alt="عيد سعيد"
-        width={300} 
-        height={100} 
+        width={300}
+        height={100}
         className="w-1/2 max-w-sm md:max-w-sm lg:max-w-xs object-contain"
       />
     </section>

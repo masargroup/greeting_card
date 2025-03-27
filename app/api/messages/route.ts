@@ -9,10 +9,10 @@ export async function POST(req: NextRequest) {
     await connectToDB();
 
     // Get the data from the request body
-    const {message, userName, url } = await req.json();
+    const {message, userName, urlSelected } = await req.json();
 
     // Check if all required fields are present
-    if (!message || !userName || !url) {
+    if (!message || !userName || !urlSelected) {
       return NextResponse.json(
         { error: 'All fields (message, userName, url) are required' },
         { status: 400 }
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     const newMessage = new Message({
       message,
       userName,
-      url,
+      urlSelected,
     });
 
     // Save the message in MongoDB
