@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import $ from 'jquery';
+import { AppImages } from '@/public/cards/images';
 
 export default function GreetingCardPage() {
   const [selectedCard, setSelectedCard] = useState<keyof typeof cardStyles | ''>('');
@@ -92,7 +93,7 @@ export default function GreetingCardPage() {
         </div> */}
         <div>
           <Image
-            src="/cards/Card_02.png"
+            src={AppImages.card1}
             alt="بطاقة تهنئة ١"
             width={400}
             height={300}
