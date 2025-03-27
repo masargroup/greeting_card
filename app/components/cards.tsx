@@ -81,12 +81,12 @@ export default function GreetingCardPage() {
               alt={`بطاقة تهنئة ${key}`}
               width={400}
               height={300}
-              className="object-cover w-full h-48 rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="object-cover w-full  rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
             />
             <div className="my-4 text-right">
               <button
                 onClick={() => handleCardSelection(key as keyof typeof cardStyles)}
-                className="bg-[#052B36] text-white px-14 py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
+                className="bg-[#052B36] text-white w-full py-2 rounded-xl text-sm cursor-pointer hover:bg-[#0c596f]"
               >
                 معـاينة وتحميــل
               </button>
