@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { card1, card2, card3, card4 } from '@/public/cards/images';
+import { Logo } from '@/public/ui/ui';
 
 export default function GreetingCardPage() {
   const [selectedCard, setSelectedCard] = useState<keyof typeof cardStyles | ''>('');
@@ -53,7 +54,7 @@ export default function GreetingCardPage() {
         if (showLogo) {
           logo.onload = () => {
             const logoWidth = 170;
-            const logoHeight = 120;
+            const logoHeight = 140;
             const logoX = 900;
             const logoY = 20;
             ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
@@ -80,7 +81,7 @@ export default function GreetingCardPage() {
   useEffect(() => {
     if (userName && selectedCard) {
       const { image, position, color } = cardStyles[selectedCard];
-      renderCardWithName(image.src, userName, position, color, '/ui/Logo.png');
+      renderCardWithName(image.src, userName, position, color, Logo.src);
     }
   }, [userName, selectedCard, showLogo]);
 
