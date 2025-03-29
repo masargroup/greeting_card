@@ -53,9 +53,9 @@ export default function GreetingCardPage() {
 
         if (showLogo) {
           logo.onload = () => {
-            const logoWidth = 170;
+            const logoWidth = 150;
             const logoHeight = 140;
-            const logoX = 900;
+            const logoX = 910;
             const logoY = 20;
             ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
 
