@@ -8,6 +8,7 @@ export default function GreetingCardPage() {
   const [userName, setUserName] = useState<string>('');
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [showLogo, setShowLogo] = useState<boolean>(true);
 
   const cardStyles = {
     card1: { image: card1, position: { x: 550, y: 1090 }, color: 'black' },
@@ -25,35 +26,63 @@ export default function GreetingCardPage() {
     setUserName(e.target.value);
   };
 
-  const renderCardWithName = (cardUrl: string, name: string, position: { x: number, y: number }, color: string) => {
+  const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setShowLogo(e.target.checked); 
+  };
+
+  const renderCardWithName = (cardUrl: string, name: string, position: { x: number, y: number }, color: string, logoUrl: string) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const img = document.createElement('img');
+    const logo = document.createElement('img');
 
     img.src = cardUrl;
+    logo.src = logoUrl;
+
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
 
       if (ctx) {
-        ctx.drawImage(img, 0, 0);
+        ctx.drawImage(img, 0, 0); 
         ctx.font = '40px El Messiri';
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
-        ctx.fillText(name, position.x, position.y);
+        ctx.fillText(name, position.x, position.y); 
 
-        const previewUrl = canvas.toDataURL('image/png');
-        setPreviewUrl(previewUrl);
+        if (showLogo) {
+          logo.onload = () => {
+            const logoWidth = 170; 
+            const logoHeight = 120; 
+            const logoX = 900;
+            const logoY = 20; 
+            ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight); 
+
+            const previewUrl = canvas.toDataURL('image/png');
+            setPreviewUrl(previewUrl);
+          };
+
+          if (logo.complete) {
+            logo.onload?.(new Event('load'));
+          }
+        } else {
+          const previewUrl = canvas.toDataURL('image/png');
+          setPreviewUrl(previewUrl);
+        }
       }
     };
+
+    if (img.complete) {
+      img.onload?.(new Event('load'));
+    }
   };
 
   useEffect(() => {
     if (userName && selectedCard) {
       const { image, position, color } = cardStyles[selectedCard];
-      renderCardWithName(image.src, userName, position, color);
+      renderCardWithName(image.src, userName, position, color, '/ui/Logo.png');
     }
-  }, [userName, selectedCard]);
+  }, [userName, selectedCard, showLogo]);
 
   const handleDownload = () => {
     if (previewUrl) {
@@ -110,6 +139,17 @@ export default function GreetingCardPage() {
                 placeholder="اسم صاحب التهنئة"
                 className="w-full px-3 py-2 border border-gray-300 focus:border-[#34A0BD] focus-within:outline-[#34A0BD] rounded-md"
               />
+            </div>
+            <div className="mt-4">
+              <label className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={showLogo}
+                  onChange={handleLogoChange}
+                  className="mr-2"
+                />
+                إظهار شعار مسار
+              </label>
             </div>
             <div className="mt-4 flex justify-between">
               <button
