@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import $ from 'jquery';
 import { card1, card2, card3, card4 } from '@/public/cards/images';
 
 export default function GreetingCardPage() {
@@ -11,10 +10,10 @@ export default function GreetingCardPage() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const cardStyles = {
-    // card1: { image: card1, position: { x: 1000, y: 1490 }, color: 'black' },
-    card2: { image: card2, position: { x: 1000, y: 1490 }, color: 'white' },
-    card3: { image: card3, position: { x: 1000, y: 1398 }, color: 'white' },
-    card4: { image: card4, position: { x: 1000, y: 1490 }, color: 'white' },
+    card1: { image: card1, position: { x: 550, y: 1090 }, color: 'black' },
+    card2: { image: card2, position: { x: 530, y: 850 }, color: '#0c596f' },
+    card3: { image: card3, position: { x: 530, y: 850 }, color: '#0c596f' },
+    card4: { image: card4, position: { x: 530, y: 850 }, color: '#0c596f' },
   };
 
   const handleCardSelection = (cardKey: keyof typeof cardStyles) => {
@@ -38,7 +37,7 @@ export default function GreetingCardPage() {
 
       if (ctx) {
         ctx.drawImage(img, 0, 0);
-        ctx.font = '45px El Messiri';
+        ctx.font = '40px El Messiri';
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
         ctx.fillText(name, position.x, position.y);

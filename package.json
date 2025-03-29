@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "greeting_card": "file:",
     "jquery": "^3.7.1",
     "mongodb": "^6.15.0",
@@ -20,6 +21,7 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4.0.15",
     "@types/jquery": "^3.5.32",
     "@types/mongoose": "^5.11.97",
