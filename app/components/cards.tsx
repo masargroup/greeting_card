@@ -27,7 +27,7 @@ export default function GreetingCardPage() {
   };
 
   const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setShowLogo(e.target.checked); 
+    setShowLogo(e.target.checked);
   };
 
   const renderCardWithName = (cardUrl: string, name: string, position: { x: number, y: number }, color: string, logoUrl: string) => {
@@ -44,19 +44,19 @@ export default function GreetingCardPage() {
       canvas.height = img.height;
 
       if (ctx) {
-        ctx.drawImage(img, 0, 0); 
+        ctx.drawImage(img, 0, 0);
         ctx.font = '40px El Messiri';
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
-        ctx.fillText(name, position.x, position.y); 
+        ctx.fillText(name, position.x, position.y);
 
         if (showLogo) {
           logo.onload = () => {
-            const logoWidth = 170; 
-            const logoHeight = 120; 
+            const logoWidth = 170;
+            const logoHeight = 120;
             const logoX = 900;
-            const logoY = 20; 
-            ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight); 
+            const logoY = 20;
+            ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
 
             const previewUrl = canvas.toDataURL('image/png');
             setPreviewUrl(previewUrl);
@@ -101,7 +101,7 @@ export default function GreetingCardPage() {
 
   return (
     <div>
-      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full max-w-6xl mx-auto p-5">
         {Object.entries(cardStyles).map(([key, { image }]) => (
           <div key={key}>
             <Image
