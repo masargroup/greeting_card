@@ -6,5 +6,7 @@ import happyEid from './happy-eid.svg';
 import Logo from './logo.svg';
 import bigStar from './star-big.svg';
 import smallStar from './star-small.svg';
+import happyAdha from './happy-adha.png'
+import celebrationDesign from './celebration-design.svg'
 
-export { Candy, Activities, Ballon1, Ballon2, happyEid, Logo, bigStar, smallStar };
+export { Candy, Activities, Ballon1, Ballon2, happyEid, Logo, bigStar, smallStar, happyAdha, celebrationDesign };
