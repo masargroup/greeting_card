@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { card1, card2, card3, card4 } from '@/public/cards/images';
+import { card1, card2, card3, card4} from '@/public/cards/images';
 import { Logo } from '@/public/ui/ui';
 
 export default function GreetingCardPage() {
@@ -12,10 +12,10 @@ export default function GreetingCardPage() {
   const [showLogo, setShowLogo] = useState<boolean>(true);
 
   const cardStyles = {
-    card1: { image: card1, position: { x: 550, y: 1090 }, color: 'black' },
-    card2: { image: card2, position: { x: 530, y: 850 }, color: '#0c596f' },
-    card3: { image: card3, position: { x: 530, y: 850 }, color: '#0c596f' },
-    card4: { image: card4, position: { x: 530, y: 850 }, color: '#0c596f' },
+    card1: { image: card1, position: { x: 680, y: 1090 }, color: '#ffffff' },
+    card2: { image: card2, position: { x: 680, y: 1090 }, color: '#fffff' },
+    card3: { image: card3, position: { x: 580, y: 1150 }, color: '#ffffff' },
+    card4: { image: card4, position: { x: 580, y: 1150 }, color: '#ffffff' },
   };
 
   const handleCardSelection = (cardKey: keyof typeof cardStyles) => {
@@ -46,7 +46,7 @@ export default function GreetingCardPage() {
 
       if (ctx) {
         ctx.drawImage(img, 0, 0);
-        ctx.font = '40px El Messiri';
+        ctx.font = '40px tajawal, sans-serif';
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
         ctx.fillText(name, position.x, position.y);
