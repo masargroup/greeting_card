@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { card1, card2, card3} from '@/public/cards/images';
-import { Logo } from '@/public/ui/ui';
+import { Logo, whiteLogo } from '@/public/ui/ui';
 
 export default function GreetingCardPage() {
   const [selectedCard, setSelectedCard] = useState<keyof typeof cardStyles | ''>('');
@@ -12,10 +12,42 @@ export default function GreetingCardPage() {
   const [showLogo, setShowLogo] = useState<boolean>(true);
 
   const cardStyles = {
-    card1: { image: card1, position: { x: 550, y: 850 }, color: '#4198B3' },
-    card2: { image: card2, position: { x: 530, y: 800 }, color: '#263747' },
-    card3: { image: card3, position: { x: 530, y: 800 }, color: '#ffffff' },
-
+    card1: { 
+      image: card1, 
+      position: { x: 550, y: 850 }, 
+      color: '#4198B3',
+      logo: {
+        image: Logo,
+        x: 900,
+        y: 50,
+        width: 150,
+        height: 140
+      }
+    },
+    card2: { 
+      image: card2, 
+      position: { x: 530, y: 800 }, 
+      color: '#263747',
+      logo: {
+        image: Logo,
+         x: 890,
+        y: 90,
+        width: 150,
+        height: 140
+      }
+    },
+    card3: { 
+      image: card3, 
+      position: { x: 530, y: 800 }, 
+      color: '#ffffff',
+      logo: {
+        image: whiteLogo,
+        x: 800,
+        y: 10,
+        width: 250,
+        height: 260
+      }
+    },
   };
 
   const handleCardSelection = (cardKey: keyof typeof cardStyles) => {
@@ -31,14 +63,20 @@ export default function GreetingCardPage() {
     setShowLogo(e.target.checked);
   };
 
-  const renderCardWithName = (cardUrl: string, name: string, position: { x: number, y: number }, color: string, logoUrl: string) => {
+  const renderCardWithName = (
+    cardUrl: string, 
+    name: string, 
+    position: { x: number, y: number }, 
+    color: string, 
+    logoConfig: { image: any, x: number, y: number, width: number, height: number }
+  ) => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const img = document.createElement('img');
     const logo = document.createElement('img');
 
     img.src = cardUrl;
-    logo.src = logoUrl;
+    logo.src = logoConfig.image.src;
 
     img.onload = () => {
       canvas.width = img.width;
@@ -53,11 +91,7 @@ export default function GreetingCardPage() {
 
         if (showLogo) {
           logo.onload = () => {
-            const logoWidth = 150;
-            const logoHeight = 140;
-            const logoX = 910;
-            const logoY = 20;
-            ctx.drawImage(logo, logoX, logoY, logoWidth, logoHeight);
+            ctx.drawImage(logo, logoConfig.x, logoConfig.y, logoConfig.width, logoConfig.height);
 
             const previewUrl = canvas.toDataURL('image/png');
             setPreviewUrl(previewUrl);
@@ -80,8 +114,8 @@ export default function GreetingCardPage() {
 
   useEffect(() => {
     if (userName && selectedCard) {
-      const { image, position, color } = cardStyles[selectedCard];
-      renderCardWithName(image.src, userName, position, color, Logo.src);
+      const { image, position, color, logo } = cardStyles[selectedCard];
+      renderCardWithName(image.src, userName, position, color, logo);
     }
   }, [userName, selectedCard, showLogo]);
 

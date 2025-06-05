@@ -57,7 +57,7 @@ export default function Hero() {
       <Image
         src={Ballon1}
         alt="Balloon 1"
-        className="balloon absolute left-[-0%] top-[-10%] transform -translate-y-1/4 md:left-[-300px] md:top-[70%] md:transform md:-translate-y-1/4 w-[100px] sm:w-[120px] md:w-[150px] lg:w-[200px] h-[120px] sm:h-[120px] md:h-[180px] lg:h-[240px]"
+        className="balloon absolute left-[-0%] top-[110%] transform -translate-y-1/4 md:left-[-300px] md:top-[70%] md:transform md:-translate-y-1/4 w-[100px] sm:w-[120px] md:w-[150px] lg:w-[200px] h-[120px] sm:h-[120px] md:h-[180px] lg:h-[240px]"
         width={150}
         height={150}
       />
@@ -129,7 +129,7 @@ export default function Hero() {
     <Image
       src={Ballon1}
       alt="Balloon 1"
-      className="balloon absolute right-[-0%] top-[-10%] transform -translate-y-1/4 md:right-[-300px] md:top-[70%] md:transform md:-translate-y-1/4 w-[100px] sm:w-[120px] md:w-[150px] lg:w-[200px] h-[120px] sm:h-[120px] md:h-[180px] lg:h-[240px] scale-x-[-1]"
+      className="balloon absolute right-[-0%] top-[110%] transform -translate-y-1/4 md:right-[-300px] md:top-[70%] md:transform md:-translate-y-1/4 w-[100px] sm:w-[120px] md:w-[150px] lg:w-[200px] h-[120px] sm:h-[120px] md:h-[180px] lg:h-[240px] scale-x-[-1]"
       width={150}
       height={150}
     />
