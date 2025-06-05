@@ -46,7 +46,7 @@ export default function GreetingCardPage() {
 
       if (ctx) {
         ctx.drawImage(img, 0, 0);
-        ctx.font = '40px tajawal, sans-serif';
+        ctx.font = '45px tajawal, sans-serif';
         ctx.fillStyle = color;
         ctx.textAlign = 'center';
         ctx.fillText(name, position.x, position.y);
