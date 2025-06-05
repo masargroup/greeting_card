@@ -14,13 +14,13 @@ export default function EidGreeting() {
       />
 
 
-      <Image
+      {/* <Image
         src={bigStar}
         alt="Big Star"
         width={40}
         height={40}
         className="absolute bottom-12 right-4 md:w-16 md:h-16"
-      />
+      /> */}
 
 
       <Image
@@ -32,13 +32,13 @@ export default function EidGreeting() {
       />
 
 
-      <Image
+      {/* <Image
         src={happyEid}
         alt="عيد سعيد"
         width={300}
         height={100}
         className="w-1/2 max-w-sm md:max-w-sm lg:max-w-xs object-contain"
-      />
+      /> */}
     </section>
   );
 }
